@@ -1,6 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --color-obsidian-black: #0c0c14;
+  --color-dark-purple: #1a0b2e;
+  --color-gothic-gold: #d4af37;
+  --color-gothic-cream: #f5e6d3;
+  --color-gothic-dark: #1a1410;
 
+  --shadow-neon-glow: 0 0 8px #d4af37, 0 0 16px #d4af37, 0 0 24px rgba(212, 175, 55, 0.4);
+
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-typing: typing 3s steps(40, end);
+  --animate-blink-caret: blink-caret 0.75s step-end infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-card-entrance: card-entrance 0.5s ease-out;
+}
 
 @layer base {
   :root {
