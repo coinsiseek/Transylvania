@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    typedRoutes: true,
+  typedRoutes: true,
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /\.json$/,
+      type: 'json',
+    });
+    return config;
   },
   // Enable static exports if needed
   // output: 'export',
