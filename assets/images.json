@@ -1,0 +1,37 @@
+{
+  "heroBackground": {
+    "url": "https://images.unsplash.com/photo-1711426632939-27e7c36246bb?w=1920&q=80",
+    "description": "Foggy forest filled with trees - misty Carpathian aesthetic",
+    "credit": "ilostmyselfout"
+  },
+  "cardAdventure1": {
+    "url": "https://images.unsplash.com/photo-1648670745554-c27d47bcad0b?w=800&q=80",
+    "description": "Dirt road in a foggy forest - silhouette heavy landscape",
+    "credit": "mrjasperharris"
+  },
+  "cardAdventure2": {
+    "url": "https://images.unsplash.com/photo-1768741876785-268ebaaddc03?w=800&q=80",
+    "description": "Arched ceiling and stone interior - gothic architecture",
+    "credit": "anniespratt"
+  },
+  "profileHeader": {
+    "url": "https://images.unsplash.com/photo-1770065551143-a557d014107a?w=1200&q=80",
+    "description": "Gothic archway with intricate stone ceiling detail",
+    "credit": "loishillphotography"
+  },
+  "cardAdventure3": {
+    "url": "https://images.unsplash.com/photo-1673211364111-6a84b565646c?w=800&q=80",
+    "description": "Dimly lit room with stone arches and pillars - low-light interior",
+    "credit": "evie.fjord"
+  },
+  "cardAdventure4": {
+    "url": "https://images.unsplash.com/photo-1762425476576-89878ce41235?w=800&q=80",
+    "description": "Castle illuminated at night with water reflection",
+    "credit": "mummy_barrow"
+  },
+  "atmosphericOverlay": {
+    "url": "https://images.unsplash.com/photo-1549197683-4bf7af15c330?w=1920&q=80",
+    "description": "Grey fogs covering tall trees - dark intervals",
+    "credit": "ChrisBarbalis"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod +x health-check.sh)",
+      "Bash(chmod +x dev.sh)",
+      "Bash(chmod +x build.sh)",
+      "Bash(chmod +x docker-run.sh)",
+      "Bash(chmod +x test.sh)",
+      "Bash(chmod +x project-summary.sh)",
+      "Bash(./project-summary.sh)",
+      "Bash(chmod +x demo.sh)"
+    ]
+  }
+}

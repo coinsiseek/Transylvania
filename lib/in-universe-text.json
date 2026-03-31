@@ -1,0 +1,18 @@
+{
+  "ui_translations": {
+    "home": "The Gateway",
+    "start_new_adventure": "Start a New Adventure",
+    "load_saved_adventure": "Resume the Chronicle",
+    "settings": "Personal Cipher",
+    "about": "The Lore",
+    "back_to_menu": "← Return to the Gates",
+    "dashboard": "The War Room",
+    "inventory": "Artifact Sanctum",
+    "quests": "Bound Destinies",
+    "map": "The Cartography",
+    "character": "The Chosen One",
+    "checkout": "Ritual of Binding",
+    "who_we_are": "Our Covenant",
+    "our_mission": "The Sacred Mission"
+  }
+}

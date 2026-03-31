@@ -1,0 +1,16 @@
+services:
+  neoretrodashboard:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+      WATCHPACK_POLLING: "true" # Critical for WSL2 hot-reload
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    user: root # Temporarily ensure the container has permission to fix the paths
+    command: npm run dev
