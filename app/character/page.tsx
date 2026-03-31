@@ -7,7 +7,7 @@ import MissionStepper from '@/components/MissionStepper';
 import CharacterCreator from '@/components/CharacterCreator';
 import { useMission } from '@/contexts/MissionContext';
 import { Character } from '@/contexts/MissionContext';
-import images from '@/assets/images.json';
+import { imageUrls as images } from '@/lib/images';
 
 const steps = [
   { id: 'setup', name: 'Setup', description: 'Group & Difficulty' },

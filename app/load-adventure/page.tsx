@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import images from '@/assets/images.json';
+import { imageUrls as images } from '@/lib/images';
 
 interface SaveSlot {
   id: number;

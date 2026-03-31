@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import images from '@/assets/images.json';
+import { imageUrls as images } from '@/lib/images';
 
 export default function AboutPage() {
   const locations = [

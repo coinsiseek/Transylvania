@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import MissionStepper from '@/components/MissionStepper';
 import CostSummary from '@/components/CostSummary';
 import { useMission } from '@/contexts/MissionContext';
-import images from '@/assets/images.json';
+import { imageUrls as images } from '@/lib/images';
 
 const steps = [
   { id: 'setup', name: 'Setup', description: 'Group & Difficulty' },

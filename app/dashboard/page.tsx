@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { getQuests, getPlayerStats, getInventory } from '@/lib/supabase';
 import { pageTransition, itemVariants, cardHover, buttonPress, staggerContainer, fadeIn } from '@/lib/animations';
-import images from '@/assets/images.json';
+import { imageUrls as images } from '@/lib/images';
 
 export default function DashboardPage() {
   const [activeQuest, setActiveQuest] = useState(0);

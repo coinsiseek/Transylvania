@@ -1,27 +1,33 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    // This ensures TypeScript paths are properly resolved
+    tsconfigPath: './tsconfig.json',
+  },
   typedRoutes: true,
-  webpack: (config, { isServer }) => {
+  reactStrictMode: true,
+  webpack: (config, { isServer, dev }) => {
+    // Handle JSON imports
     config.module.rules.push({
       test: /\.json$/,
       type: 'json',
+      parser: {
+        parse: JSON.parse,
+      },
     });
+    
+    // Ensure proper resolution for assets
+    config.resolve ??= {};
+    config.resolve.alias ??= {};
+    config.resolve.alias['@'] = require('path').resolve(__dirname);
+    
     return config;
   },
-  // Enable static exports if needed
-  // output: 'export',
-  // Optional: Add basePath if deploying to a subdirectory
-  // basePath: '/neo-retro',
 
-  // Optional: Configure trailing slash behavior
-  // trailingSlash: true,
-
-  // Optional: Configure image optimization
   images: {
-    unoptimized: true, // Set to false if using Next.js Image Optimization API
+    unoptimized: true,
   },
 
-  // Optional: Configure headers for security
   async headers() {
     return [
       {
