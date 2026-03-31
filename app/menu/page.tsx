@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { imageUrls as images } from '@/lib/images';
+import type { Route } from 'next';
 
 export default function MainMenuPage() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -82,7 +83,7 @@ export default function MainMenuPage() {
             onMouseEnter={() => setHoveredItem(item.id)}
             onMouseLeave={() => setHoveredItem(null)}
           >
-            <Link href={item.href}>
+            <Link href={item.href as Route}>
               <div className={`
                 p-6 rounded-lg cursor-pointer transition-all duration-300
                 border-2 glass-card
