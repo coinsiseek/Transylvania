@@ -18,25 +18,14 @@
 }
 
 @layer base {
-  :root {
-    --obsidian-black: #0c0c14;
-    --dark-purple: #1a0b2e;
-    --gothic-gold: #d4af37;
-    --gothic-cream: #f5e6d3;
-    --gothic-dark: #1a1410;
-    --gothic-mist: rgba(212, 175, 55, 0.15);
-    --neon-glow: 0 0 8px #d4af37, 0 0 16px #d4af37, 0 0 24px rgba(212, 175, 55, 0.4);
-    --scanline-opacity: 0.03;
-  }
-
   body {
-    background-color: var(--obsidian-black);
-    color: var(--gothic-cream);
+    background-color: var(--color-obsidian-black);
+    color: var(--color-gothic-cream);
     font-family: 'Courier New', monospace;
     position: relative;
     overflow-x: hidden;
   }
-
+  
   body::before {
     content: "";
     position: fixed;
