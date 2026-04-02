@@ -1,12 +1,11 @@
 # Stage 1: Install dependencies
 FROM node:20-alpine AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Copy package files
 COPY package.json package-lock.json* ./
-# Install ALL dependencies (including devDeps like tailwindcss and typescript)
+# Install ALL dependencies
 RUN npm ci --legacy-peer-deps
 
 # Stage 2: Build the project
@@ -15,7 +14,17 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Run the build. This resolves your @/ paths and generates the .next folder
+# --- NEW: ARG and ENV for Railway Build Variables ---
+ARG NEXT_PUBLIC_SUPABASE_URL
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
+ARG NEXT_PUBLIC_APP_NAME
+
+ENV NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY
+ENV NEXT_PUBLIC_APP_NAME=$NEXT_PUBLIC_APP_NAME
+# ---------------------------------------------------
+
+# Run the build. Now Supabase variables are visible to Next.js
 RUN npm run build
 
 # Stage 3: Production runner
@@ -39,6 +48,5 @@ USER nextjs
 EXPOSE 3000
 ENV PORT 3000
 
-# Use 'npm start' or 'next start'. 
-# Note: No need to manually set PATH; npm handles the .bin mapping.
+# Use npm start to run the optimized production server
 CMD ["npm", "start"]
