@@ -17,12 +17,12 @@ export default function MainMenuPage() {
   ];
 
   return (
-    <div className="h-screen w-screen overflow-hidden relative flex flex-col items-center justify-center p-4"
+    <div className="h-full w-full min-h-screen overflow-auto relative flex flex-col items-center justify-start p-4"
       style={{
         backgroundImage: `url(${images.heroBackground.url})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'scroll'
       }}>
       
       {/* Vignette & Film Grain Overlay */}
