@@ -6,17 +6,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Explicitly configure webpack for path aliases
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': require('path').resolve(__dirname),
-      '@/components': require('path').resolve(__dirname, 'components'),
-      '@/lib': require('path').resolve(__dirname, 'lib'),
-      '@/contexts': require('path').resolve(__dirname, 'contexts'),
-    };
-    return config;
-  },
+  // Ensure proper asset prefix for Railway
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
 };
 
 module.exports = nextConfig;
