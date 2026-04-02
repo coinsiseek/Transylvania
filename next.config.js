@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output : 'standalone',
   // Fixes the 'experimental.typedRoutes' warning from your logs
   typedRoutes: false,
   reactStrictMode: true,
@@ -11,6 +12,10 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+  },
+  experimental: {
+    workerThreads: false,
+    cpus: 1
   },
   // Ensure proper asset prefix for Railway
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
