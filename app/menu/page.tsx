@@ -85,7 +85,7 @@ export default function MainMenuPage() {
           >
             <Link href={item.href as Route}>
               <div className={`
-                p-6 rounded-lg cursor-pointer transition-all duration-300
+                p-4 sm:p-6 rounded-lg cursor-pointer transition-all duration-300
                 border-2 glass-card
                 ${hoveredItem === item.id
                   ? 'border-gothic-cream bg-opacity-60 scale-105'

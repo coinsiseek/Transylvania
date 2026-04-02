@@ -60,7 +60,7 @@ export default function SetupPage() {
               </p>
 
               <div className="flex flex-col items-center">
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4" style={{ color: '#d4af37' }}>{groupSize}</div>
+                <div className="text-4xl sm:text-5xl md:text-4xl sm:text-5xl font-bold mb-4" style={{ color: '#d4af37' }}>{groupSize}</div>
                 <div className="flex gap-4">
                   <button
                     onClick={() => setGroupSize(Math.max(1, groupSize - 1))}

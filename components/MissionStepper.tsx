@@ -45,7 +45,7 @@ export default function MissionStepper({ steps, currentStep, onStepClick }: Miss
               >
                 <button
                   onClick={() => onStepClick && onStepClick(step.id)}
-                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-all duration-300`}
+                  className={`w-8 h-8 step-indicator rounded-full flex items-center justify-center mb-2 transition-all duration-300`}
                   style={{
                     backgroundColor: isActive || isCompleted ? '#d4af37' : '#0c0c14',
                     color: isActive || isCompleted ? '#0c0c14' : '#d4af37',
@@ -61,7 +61,7 @@ export default function MissionStepper({ steps, currentStep, onStepClick }: Miss
                   )}
                 </button>
 
-                <div className="text-center max-w-[120px]">
+                <div className="text-center max-w-[80px] step-description">
                   <h3 className="font-bold text-sm" style={{ color: isActive ? '#d4af37' : '#f5e6d3' }}>
                     {step.name}
                   </h3>

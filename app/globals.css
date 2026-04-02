@@ -438,3 +438,49 @@
     max-width: 100%;
   }
 }
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .h-screen {
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .w-screen {
+    width: 100vw;
+    max-width: 100vw;
+  }
+  
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  #__next {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100%;
+  }
+  
+  /* Fix for stepper component */
+  .stepper-container {
+    overflow-x: hidden;
+    padding: 0 8px;
+  }
+  
+  /* Smaller step indicators */
+  .step-indicator {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  /* Hide step descriptions on mobile */
+  .step-description {
+    display: none;
+  }
+}
