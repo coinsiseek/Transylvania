@@ -44,7 +44,7 @@
     background: linear-gradient(rgba(212, 175, 55, var(--scanline-opacity)) 1px, transparent 1px);
     background-size: 100% 2px;
     pointer-events: none;
-    z-index: 9999;
+    z-index: -1;
     animation: scanline 8s linear infinite;
   }
 
@@ -483,4 +483,16 @@
   .step-description {
     display: none;
   }
+}
+
+/* Dashboard scroll fix */
+.dashboard-scroll-fix {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure no horizontal overflow */
+.overflow-x-hidden {
+  overflow-x: hidden;
+  max-width: 100vw;
 }

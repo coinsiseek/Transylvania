@@ -10,10 +10,10 @@ export default function MainMenuPage() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const menuItems = [
-    { id: 'start', label: 'Begin Your Initiation', href: '/setup', icon: '⚔️' },
-    { id: 'continue', label: 'Resume the Chronicle', href: '/load-adventure', icon: '📜' },
-    { id: 'settings', label: 'Personal Cipher', href: '/settings', icon: '🗝️' },
-    { id: 'about', label: 'The Gateway', href: '/about', icon: '🏰' },
+    { id: 'start', label: 'Start a New Adventure', href: '/setup', icon: '⚔️' },
+    { id: 'continue', label: 'Resume an Adventure', href: '/load-adventure', icon: '📜' },
+    { id: 'settings', label: 'Your Character', href: '/settings', icon: '🗝️' },
+    { id: 'about', label: 'About', href: '/about', icon: '🏰' },
   ];
 
   return (

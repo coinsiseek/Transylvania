@@ -94,11 +94,11 @@ export default function DashboardPage() {
   return (
     <motion.div
       {...pageTransition}
-      className="space-y-6"
+      className="space-y-6 overflow-x-hidden"
     >
       {/* Header with Typewriter Effect */}
       <div className="glow-card p-6 rounded-lg">
-        <h1 className="text-3xl font-bold mb-2">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">
           <span className="typewriter-text">{typingText}</span>
         </h1>
         <p style={{ color: '#f5e6d3' }}>Current Mission Status: ACTIVE</p>
