@@ -93,7 +93,7 @@ export default function DashboardPage() {
 
   return (
     <motion.div
-      {...pageTransition}
+      {...pageTransition} className="content-above-scanline"
       className="space-y-6 overflow-x-hidden"
     >
       {/* Header with Typewriter Effect */}

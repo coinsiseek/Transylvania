@@ -19,7 +19,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </head>
       <body 
-        className={`${GeistMono.className} w-screen h-screen flex flex-col bg-obsidian-black text-poison-green`}
+        className={`${GeistMono.className} w-screen h-screen flex flex-col content-above-scanline bg-obsidian-black text-poison-green`}
         style={{ width: "100vw", height: "100vh", margin: 0, padding: 0, overflow: "auto" }}
       >
         <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column" }}>

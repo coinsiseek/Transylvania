@@ -42,7 +42,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="relative z-20 text-center mb-10 sm:mb-16 md:mb-20 mt-4 sm:mt-8 md:mt-12"
+        className="relative z-20 content-above-scanline text-center mb-10 sm:mb-16 md:mb-20 mt-4 sm:mt-8 md:mt-12"
       >
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 glitch-effect shimmer-text" 
           data-text="TRANSYLVANIA"
@@ -72,7 +72,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative z-20 space-y-6 max-w-md w-full"
+        className="relative z-20 content-above-scanline space-y-6 max-w-md w-full"
       >
         {menuItems.map((item, index) => (
           <motion.div
@@ -134,7 +134,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="relative z-20 mt-20 text-center text-xs md:text-sm opacity-70"
+        className="relative z-20 content-above-scanline mt-20 text-center text-xs md:text-sm opacity-70"
         style={{ color: '#d4af37' }}
       >
         <p className="italic">Your choices echo through the ages...</p>
