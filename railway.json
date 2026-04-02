@@ -1,0 +1,10 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "next start",
+    "healthcheckPath": "/api/health",
+    "healthcheckTimeout": 300
+  }
+}

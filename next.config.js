@@ -6,8 +6,17 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Remove the custom Webpack JSON/Alias rules. 
-  // Next.js uses your tsconfig.json automatically for the '@' alias.
+  // Explicitly configure webpack for path aliases
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': require('path').resolve(__dirname),
+      '@/components': require('path').resolve(__dirname, 'components'),
+      '@/lib': require('path').resolve(__dirname, 'lib'),
+      '@/contexts': require('path').resolve(__dirname, 'contexts'),
+    };
+    return config;
+  },
 };
 
 module.exports = nextConfig;
