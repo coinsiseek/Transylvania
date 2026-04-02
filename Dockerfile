@@ -1,12 +1,44 @@
-FROM node:lts-alpine
-ENV NODE_ENV=production
-WORKDIR /usr/src/app
-COPY package.json package-lock.json* npm-shrinkwrap.json* ./
-RUN npm ci --only=production && npm cache clean --force
+# Stage 1: Install dependencies
+FROM node:20-alpine AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json* ./
+# Install ALL dependencies (including devDeps like tailwindcss and typescript)
+RUN npm ci --legacy-peer-deps
+
+# Stage 2: Build the project
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# Run the build. This resolves your @/ paths and generates the .next folder
+RUN npm run build
+
+# Stage 3: Production runner
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Create a non-root user for security
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy only the necessary files for production
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+USER nextjs
+
 EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
-# Add the node_modules/.bin to PATH so next command is available
-ENV PATH=/usr/src/app/node_modules/.bin:/mingw64/bin:/usr/bin:/c/Users/HP/bin:/c/Users/HP/AppData/Local/fnm_multishells/28340_1775121615560:/c/Python314/Scripts:/c/Python314:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/cmd:/c/Program Files/dotnet:/c/Program Files/CMake/bin:/c/Program Files (x86)/cloudflared:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/cmd:/c/Program Files/dotnet:/c/Program Files/CMake/bin:/c/Program Files (x86)/cloudflared:/c/Users/HP/AppData/Roaming/Python/Python313/Scripts:/c/Users/HP/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/HP/AppData/Local/Programs/Ollama:/c/ffmpeg/ffmpeg/bin:/c/ProgramData/chocolatey/bin:/c/Program Files/GitHub CLI:/c/Program Files/Docker/Docker/resources/bin:/c/Users/HP/.cargo/bin:/c/Users/HP/AppData/Local/Programs/Python/Python313/Scripts:/c/Users/HP/AppData/Local/Programs/Python/Python313:/c/Python314/Scripts:/c/Python314:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/cmd:/c/Program Files/dotnet:/c/Program Files/CMake/bin:/c/Program Files (x86)/cloudflared:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/cmd:/c/Program Files/dotnet:/c/Program Files/CMake/bin:/c/Program Files (x86)/cloudflared:/c/Users/HP/AppData/Roaming/Python/Python313/Scripts:/c/Users/HP/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/HP/AppData/Local/Programs/Ollama:/c/ffmpeg/ffmpeg/bin:/c/ProgramData/chocolatey/bin:/c/Program Files/GitHub CLI:/c/Program Files/Docker/Docker/resources/bin:/c/Users/HP/AppData/Roaming/Python/Python313/Scripts:/c/Users/HP/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/HP/AppData/Local/Programs/Ollama:/c/Users/HP/AppData/Roaming/npm
-CMD [next, start]
+ENV PORT 3000
+
+# Use 'npm start' or 'next start'. 
+# Note: No need to manually set PATH; npm handles the .bin mapping.
+CMD ["npm", "start"]
