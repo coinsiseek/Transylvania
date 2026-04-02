@@ -22,19 +22,19 @@ export default function MainMenuPage() {
         backgroundImage: `url(${images.heroBackground.url})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'scroll'
+        backgroundAttachment: 'fixed'
       }}>
       
       {/* Vignette & Film Grain Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-obsidian-black opacity-60"></div>
-      <div className="absolute inset-0 bg-gradient-radial from-transparent to-black opacity-40"></div>
+      <div className="absolute inset-0 menu-gradient-overlay z-0 bg-gradient-to-b from-transparent via-transparent to-obsidian-black opacity-60"></div>
+      <div className="absolute inset-0 menu-gradient-overlay z-0 bg-gradient-radial from-transparent to-black opacity-40"></div>
       
       {/* Animated Mist/Pulse Effect */}
       <motion.div
         initial={{ opacity: 0.3 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 8, repeat: Infinity, repeatType: 'reverse' }}
-        className="absolute inset-0 bg-black opacity-40"
+        className="absolute inset-0 menu-gradient-overlay z-0 bg-black opacity-40"
       />
 
       {/* Header Title */}
@@ -42,7 +42,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="relative z-20 content-above-scanline text-center mb-10 sm:mb-16 md:mb-20 mt-4 sm:mt-8 md:mt-12"
+        className="relative z-20 content-above-scanline content-above-scanline text-center mb-10 sm:mb-16 md:mb-20 mt-4 sm:mt-8 md:mt-12"
       >
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 glitch-effect shimmer-text" 
           data-text="TRANSYLVANIA"
@@ -72,7 +72,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="relative z-20 content-above-scanline space-y-6 max-w-md w-full"
+        className="relative z-20 content-above-scanline content-above-scanline space-y-6 max-w-md w-full"
       >
         {menuItems.map((item, index) => (
           <motion.div
@@ -134,7 +134,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="relative z-20 content-above-scanline mt-20 text-center text-xs md:text-sm opacity-70"
+        className="relative z-20 content-above-scanline content-above-scanline mt-20 text-center text-xs md:text-sm opacity-70"
         style={{ color: '#d4af37' }}
       >
         <p className="italic">Your choices echo through the ages...</p>

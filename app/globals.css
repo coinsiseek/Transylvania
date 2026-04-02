@@ -502,3 +502,14 @@
   position: relative;
   z-index: 2;
 }
+
+/* Menu page gradient overlays that cover full scrollable area */
+.menu-gradient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
