@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 ENV NODE_ENV=production
 WORKDIR /usr/src/app
-COPY [package.json, package-lock.json*, npm-shrinkwrap.json*, ./]
+COPY package.json package-lock.json* npm-shrinkwrap.json* ./
 RUN npm ci --only=production && npm cache clean --force
 COPY . .
 EXPOSE 3000
