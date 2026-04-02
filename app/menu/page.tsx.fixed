@@ -1,0 +1,20 @@
+'use client';
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { imageUrls as images } from '@/lib/images';
+import type { Route } from 'next';
+
+export default function MainMenuPage() {
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  const menuItems = [
+    { id: 'start', label: 'Begin Your Initiation', href: '/setup', icon: '⚔️' },
+    { id: 'continue', label: 'Resume the Chronicle', href: '/load-adventure', icon: '📜' },
+    { id: 'settings', label: 'Personal Cipher', href: '/settings', icon: '🗝️' },
+    { id: 'about', label: 'The Gateway', href: '/about', icon: '🏰' },
+  ];
+
+  return (
+    <div className=h-screen
