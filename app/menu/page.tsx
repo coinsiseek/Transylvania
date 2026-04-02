@@ -17,7 +17,7 @@ export default function MainMenuPage() {
   ];
 
   return (
-    <div className="min-h-screen overflow-hidden relative flex flex-col items-center justify-center p-4"
+    <div className="h-screen w-screen overflow-hidden relative flex flex-col items-center justify-center p-4"
       style={{
         backgroundImage: `url(${images.heroBackground.url})`,
         backgroundSize: 'cover',
@@ -42,7 +42,7 @@ export default function MainMenuPage() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="relative z-20 text-center mb-20"
+        className="relative z-20 text-center mb-20 mt-12"
       >
         <h1 className="text-5xl md:text-8xl font-bold mb-4 glitch-effect shimmer-text" 
           data-text="TRANSYLVANIA"

@@ -42,7 +42,7 @@ export default function CharacterPage() {
   };
 
   return (
-    <div className="min-h-screen relative py-8 px-4" style={{
+    <div className="h-full w-full relative py-8 px-4 overflow-y-auto" style={{
       backgroundImage: `url(${images.cardAdventure2.url})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',

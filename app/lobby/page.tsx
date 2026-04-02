@@ -66,7 +66,7 @@ export default function LobbyPage() {
   };
 
   return (
-    <div className="min-h-screen relative py-8 px-4" style={{
+    <div className="h-full w-full relative py-8 px-4 overflow-y-auto" style={{
       backgroundImage: `url(${images.cardAdventure3.url})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',

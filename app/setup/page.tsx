@@ -35,7 +35,7 @@ export default function SetupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-obsidian-black py-8 px-4">
+    <div className="h-full w-full bg-obsidian-black py-8 px-4 overflow-y-auto flex flex-col">
       <MissionStepper steps={steps} currentStep="setup" />
 
       <motion.div

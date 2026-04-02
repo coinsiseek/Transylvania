@@ -34,11 +34,11 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-obsidian-black py-8 px-4">
+    <div className="h-full w-full bg-obsidian-black py-8 px-4 overflow-y-auto flex flex-col">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="max-w-6xl mx-auto"
+        className="max-w-6xl mx-auto w-full"
       >
         {/* Header */}
         <Link href="/menu" className="pixel-button px-4 py-2 mb-8 inline-block">

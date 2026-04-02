@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-obsidian-black relative overflow-hidden">
+    <div className="h-full w-full bg-obsidian-black relative overflow-hidden flex flex-col">
       {/* Hero Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-30"
@@ -19,7 +19,7 @@ export default function HomePage() {
       <div className="absolute inset-0 bg-gradient-to-b from-obsidian-black via-dark-purple to-obsidian-black opacity-80"></div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center p-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function HomePage() {
       </div>
 
       {/* About Preview Section */}
-      <div className="relative z-10 min-h-screen bg-gradient-to-b from-transparent to-dark-purple p-8">
+      <div className="relative z-10 h-full bg-gradient-to-b from-transparent to-dark-purple p-8 overflow-y-auto">
         <div className="max-w-4xl mx-auto space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}

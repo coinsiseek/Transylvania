@@ -22,7 +22,7 @@ const scenarios = [
     id: 'emerald-canopy',
     name: 'The Emerald Canopy',
     description: 'A verdant paradise with towering trees and diverse wildlife. Perfect for nature lovers seeking a balanced adventure.',
-    difficulty: 'Normal',
+    difficulty: 'Normal' as const,
     features: ['Tree-top walkways', 'River crossings', 'Wildlife spotting', 'Camping under stars'],
     baseCost: 1200,
   },
@@ -30,7 +30,7 @@ const scenarios = [
     id: 'whispering-pines',
     name: 'The Whispering Pines',
     description: 'Majestic coniferous forests with serene lakes and challenging trails. Ideal for experienced adventurers seeking solitude.',
-    difficulty: 'Hard',
+    difficulty: 'Hard' as const,
     features: ['Mountain vistas', 'Private cabins', 'Expert trails', 'Hot springs'],
     baseCost: 2500,
   },
@@ -59,7 +59,7 @@ export default function ScenarioPage() {
   };
 
   return (
-    <div className="min-h-screen relative py-8 px-4" style={{
+    <div className="h-full w-full relative py-8 px-4 overflow-y-auto" style={{
       backgroundImage: `url(${images.atmosphericOverlay.url})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',

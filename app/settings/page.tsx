@@ -48,7 +48,7 @@ export default function SettingsPage() {
 
 
   return (
-    <div className="min-h-screen relative py-8 px-4" style={{
+    <div className="h-full w-full relative py-8 px-4 overflow-y-auto" style={{
       backgroundImage: `url(${images.atmosphericOverlay.url})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -109,7 +109,7 @@ export default function SettingsPage() {
                       onChange={(e) => handleSliderChange(attr.key, parseInt(e.target.value))}
                       className="flex-1 h-2 bg-dark-purple rounded appearance-none cursor-pointer"
                       style={{
-                        background: `linear-gradient(to right, #1a0b2e 0%, #00ff41 ${profile[attr.key as keyof typeof profile]}%, #1a0b2e ${profile[attr.key as keyof typeof profile]}%, #1a0b2e 100%)`,
+                        background: `linear-gradient(to right, #1a0b2e 0%, #d4af37 ${profile[attr.key as keyof typeof profile]}%, #1a0b2e ${profile[attr.key as keyof typeof profile]}%, #1a0b2e 100%)`,
                       }}
                     />
                   </div>
