@@ -21,11 +21,18 @@ export default function MissionStepper({ steps, currentStep, onStepClick }: Miss
   return (
     <div className="w-full max-w-full w-full px-4 mx-auto mb-8">
       <div className="relative">
-        {/* Progress line */}
-        <div className="absolute top-6 left-0 right-0 h-1 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(212, 175, 55, 0.2)' }}>
+        {/* Progress line - vertically centered with step indicators */}
+        {/* Line starts at center of step 1 and ends at center of last step */}
+        <div
+          className="absolute top-4 left-4 right-4 h-1 rounded-full overflow-hidden"
+          style={{ backgroundColor: 'rgba(212, 175, 55, 0.2)' }}
+        >
           <div
             className="h-full transition-all duration-500 ease-in-out"
-            style={{ width: `${(currentIndex / (steps.length - 1)) * 100}%`, backgroundColor: '#d4af37' }}
+            style={{
+              width: currentIndex === 0 ? '0%' : `${(currentIndex / (steps.length - 1)) * 100}%`,
+              backgroundColor: '#d4af37'
+            }}
           ></div>
         </div>
 
